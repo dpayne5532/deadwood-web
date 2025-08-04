@@ -1,13 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function App() {
+  const [quote, setQuote] = useState(null);
+
+  useEffect(() => {
+    fetch("https://api.deadwood.rest")
+      .then(res => res.json())
+      .then(data => {
+        setQuote(data);
+      })
+      .catch(err => {
+        console.error("Failed to fetch quote:", err);
+      });
+  }, []);
+
   return (
     <div style={styles.wrapper}>
       <main style={styles.main}>
-        <h1 style={styles.title}>Welcome to <span style={styles.accent}>Deadwood.REST</span></h1>
+        <h1 style={styles.title}>
+          Welcome to <span style={styles.accent}>Deadwood.REST</span>
+        </h1>
         <p style={styles.tagline}>
           This site provides a profanity-rich REST API inspired by HBO’s <em>Deadwood</em>.
         </p>
+
+        {quote && (
+          <blockquote style={styles.quote}>
+            “{quote.quote}”
+            <footer style={styles.author}>— {quote.by}</footer>
+          </blockquote>
+        )}
 
         <h2 style={styles.subheading}>API Usage:</h2>
         <div style={styles.codeBlock}>
@@ -54,6 +76,23 @@ const styles = {
   tagline: {
     fontSize: "1.1rem",
     marginBottom: "2rem",
+  },
+  quote: {
+    fontSize: "1.2rem",
+    fontStyle: "italic",
+    backgroundColor: "#333",
+    padding: "1rem",
+    borderRadius: "8px",
+    marginBottom: "2rem",
+    lineHeight: "1.6",
+  },
+  author: {
+    marginTop: "0.5rem",
+    fontSize: "1rem",
+    fontWeight: "500",
+    textAlign: "right",
+    display: "block",
+    color: "#ffcc00",
   },
   subheading: {
     fontSize: "1.5rem",
