@@ -1,10 +1,13 @@
 #!/bin/bash
 
+current_branch=$(git rev-parse --abbrev-ref HEAD)
 set -e  # Exit immediately if a command exits with a non-zero status
 
 echo "📥 Pulling latest changes from GitHub..."
 cd /home/dan/deadwood-web
-git pull
+git checkout master
+git pull origin master
+git checkout "$current_branch"
 
 echo "🔧 Installing/updating dependencies..."
 npm install
