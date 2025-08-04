@@ -4,7 +4,7 @@ function App() {
   const [quote, setQuote] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.deadwood.rest")
+    fetch("https://api.deadwood.rest/frontend")
       .then(res => res.json())
       .then(data => {
         setQuote(data);
