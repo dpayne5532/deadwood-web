@@ -80,11 +80,14 @@ const styles = {
   quote: {
     fontSize: "1.2rem",
     fontStyle: "italic",
-    backgroundColor: "#333",
+    backgroundColor: "#444",
     padding: "1rem",
     borderRadius: "8px",
     marginBottom: "2rem",
     lineHeight: "1.6",
+    // whiteSpace: "pre-wrap",
+    // fontFamily: "monospace",
+    // fontVariantLigatures: "none",
   },
   author: {
     marginTop: "0.5rem",
