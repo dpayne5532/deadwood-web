@@ -38,6 +38,10 @@ function App() {
           <code>GET https://api.deadwood.rest/al</code><br />
           <code>GET https://api.deadwood.rest/jane</code><br />
           <code>GET https://api.deadwood.rest/joanie</code><br />
+          <code>GET https://api.deadwood.rest/doc</code><br />
+          <code>GET https://api.deadwood.rest/eb</code><br />
+          <code>GET https://api.deadwood.rest/wildbill</code><br />
+          <code>GET https://api.deadwood.rest/wu</code><br />
           <code>GET https://api.deadwood.rest/trixie</code>
         </div>
 
