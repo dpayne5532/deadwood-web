@@ -39,6 +39,7 @@ function App() {
           <code>GET https://api.deadwood.rest/jane</code><br />
           <code>GET https://api.deadwood.rest/joanie</code><br />
           <code>GET https://api.deadwood.rest/trixie</code>
+          <code>GET https://api.deadwood.rest/tube</code>
         </div>
 
         <p style={styles.footer}>More endpoints coming soon.</p>
