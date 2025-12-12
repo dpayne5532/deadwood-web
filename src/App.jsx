@@ -5,11 +5,11 @@ function App() {
 
   useEffect(() => {
     fetch("https://api.deadwood.rest/frontend")
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setQuote(data);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Failed to fetch quote:", err);
       });
   }, []);
@@ -20,8 +20,11 @@ function App() {
         <h1 style={styles.title}>
           Welcome to <span style={styles.accent}>Deadwood.REST</span>
         </h1>
+
+        <div style={styles.rule}>✦</div>
+
         <p style={styles.tagline}>
-          This site provides a profanity-rich REST API inspired by HBO’s <em>Deadwood</em>.
+          A profanity-rich REST API inspired by HBO’s <em>Deadwood</em>.
         </p>
 
         {quote && (
@@ -31,17 +34,27 @@ function App() {
           </blockquote>
         )}
 
-        <h2 style={styles.subheading}>API Usage:</h2>
+        <h2 style={styles.subheading}>API Endpoints</h2>
+
         <div style={styles.codeBlock}>
-          <code>GET https://api.deadwood.rest</code><br />
-          <code>GET https://api.deadwood.rest/bullock</code><br />
-          <code>GET https://api.deadwood.rest/al</code><br />
-          <code>GET https://api.deadwood.rest/jane</code><br />
-          <code>GET https://api.deadwood.rest/joanie</code><br />
-          <code>GET https://api.deadwood.rest/doc</code><br />
-          <code>GET https://api.deadwood.rest/eb</code><br />
-          <code>GET https://api.deadwood.rest/wildbill</code><br />
-          <code>GET https://api.deadwood.rest/wu</code><br />
+          <code>GET https://api.deadwood.rest</code>
+          <br />
+          <code>GET https://api.deadwood.rest/bullock</code>
+          <br />
+          <code>GET https://api.deadwood.rest/al</code>
+          <br />
+          <code>GET https://api.deadwood.rest/jane</code>
+          <br />
+          <code>GET https://api.deadwood.rest/joanie</code>
+          <br />
+          <code>GET https://api.deadwood.rest/doc</code>
+          <br />
+          <code>GET https://api.deadwood.rest/eb</code>
+          <br />
+          <code>GET https://api.deadwood.rest/wildbill</code>
+          <br />
+          <code>GET https://api.deadwood.rest/wu</code>
+          <br />
           <code>GET https://api.deadwood.rest/trixie</code>
         </div>
 
@@ -53,71 +66,106 @@ function App() {
 
 const styles = {
   wrapper: {
-    backgroundColor: "#1e1e1e",
-    color: "#f5f5f5",
+    background: `
+      radial-gradient(circle at top, rgba(255,200,120,0.08), transparent 60%),
+      linear-gradient(180deg, #1a120b, #0e0906)
+    `,
+    color: "#f4e9d8",
     minHeight: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     padding: "2rem",
+    fontFamily: "'Georgia', 'Times New Roman', serif",
   },
+
   main: {
-    maxWidth: "720px",
+    maxWidth: "760px",
     textAlign: "center",
-    backgroundColor: "#2c2c2c",
+    background: "linear-gradient(180deg, #3a2616, #2a1b11)",
     padding: "3rem",
-    borderRadius: "10px",
-    boxShadow: "0 0 10px rgba(0,0,0,0.4)",
+    borderRadius: "12px",
+    border: "2px solid #6b4a2d",
+    boxShadow: `
+      0 0 0 4px #1b120a,
+      0 20px 40px rgba(0,0,0,0.8)
+    `,
   },
+
   title: {
-    fontSize: "2.5rem",
-    fontWeight: "700",
-    marginBottom: "1rem",
+    fontSize: "3rem",
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    marginBottom: "0.75rem",
+    color: "#f6e3b4",
+    textShadow: "2px 2px 0 #000",
   },
+
   accent: {
-    color: "#ffcc00",
+    color: "#d4a24c",
   },
+
+  rule: {
+    fontSize: "1.5rem",
+    color: "#a67c3a",
+    marginBottom: "1.5rem",
+  },
+
   tagline: {
-    fontSize: "1.1rem",
-    marginBottom: "2rem",
-  },
-  quote: {
-    fontSize: "1.2rem",
+    fontSize: "1.15rem",
+    marginBottom: "2.5rem",
     fontStyle: "italic",
-    backgroundColor: "#444",
-    padding: "1rem",
-    borderRadius: "8px",
-    marginBottom: "2rem",
-    lineHeight: "1.6",
-    // whiteSpace: "pre-wrap",
-    // fontFamily: "monospace",
-    // fontVariantLigatures: "none",
+    color: "#e8d7b1",
   },
+
+  quote: {
+    fontSize: "1.35rem",
+    fontStyle: "italic",
+    background: "linear-gradient(180deg, #4b321f, #3a2616)",
+    padding: "1.5rem",
+    borderRadius: "10px",
+    marginBottom: "2.5rem",
+    lineHeight: "1.7",
+    borderLeft: "6px solid #a67c3a",
+    boxShadow: "inset 0 0 10px rgba(0,0,0,0.6)",
+  },
+
   author: {
-    marginTop: "0.5rem",
-    fontSize: "1rem",
-    fontWeight: "500",
+    marginTop: "0.75rem",
+    fontSize: "1.05rem",
+    fontWeight: "600",
     textAlign: "right",
     display: "block",
-    color: "#ffcc00",
+    color: "#d4a24c",
   },
+
   subheading: {
-    fontSize: "1.5rem",
+    fontSize: "1.75rem",
     marginBottom: "1rem",
+    marginTop: "2rem",
+    letterSpacing: "0.05em",
+    color: "#f6e3b4",
+    textTransform: "uppercase",
   },
+
   codeBlock: {
-    backgroundColor: "#333",
-    padding: "1rem",
-    borderRadius: "6px",
+    background: "linear-gradient(180deg, #1c1c1c, #0f0f0f)",
+    padding: "1.25rem",
+    borderRadius: "8px",
     textAlign: "left",
-    fontFamily: "monospace",
-    marginBottom: "1.5rem",
-    lineHeight: "1.7",
+    fontFamily: "'Courier New', monospace",
+    marginBottom: "2rem",
+    lineHeight: "1.8",
     fontSize: "0.95rem",
+    color: "#e6d3a3",
+    border: "1px solid #6b4a2d",
+    boxShadow: "inset 0 0 8px rgba(0,0,0,0.8)",
   },
+
   footer: {
-    color: "#bbb",
+    color: "#cbb98a",
     fontStyle: "italic",
+    fontSize: "0.95rem",
   },
 };
 
